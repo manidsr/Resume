@@ -1,0 +1,46 @@
+{% extends "Manager/Base.html"%}
+
+{% block title %} سرویس ها {% endblock %}
+{% block Pagetitle %} سرویس ها {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12 col-md-12 order-lg-2 order-md-3">
+    {% for service in services%}
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">اسم سرویس</span>
+                    <input type="text" class="form-control" placeholder="اسم سرویس" aria-label="Username" name="name" value="{{service.name}}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">توضیحات</span>
+                    <input type="text" class="form-control" placeholder="توضیحات" aria-label="Username" name="info" value="{{service.info}}">
+                    <input type="hidden" name="id" value="{{service.id}}">
+                </div>
+                <button class="btn btn-success col-1" type="submit" name="save" value="save">ذخیره</button>
+                <button class="btn btn-danger" type="submit" name="delete" value="delete">حذف</button>
+            </div>
+        </div>
+        
+    </form>
+
+    {% endfor %}
+    <div class="col-6 mx-auto">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-primary col" type="submit" name="add" value="add">اضافه کردن</button>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+{% endblock%}

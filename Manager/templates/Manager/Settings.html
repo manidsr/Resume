@@ -1,0 +1,67 @@
+{% extends "Manager/Base.html"%}
+
+{% block title %} لینک ها {% endblock %}
+{% block Pagetitle %} لینک ها {% endblock %}
+
+{% block content %}
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12 col-md-12 order-lg-2 order-md-3">
+    <form method="post">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-body">
+                
+                <div class="form-group form-check">
+                    <label class="form-check-label" for="exampleCheck1">Block Hero</label>
+                    <input style="margin-right: 10px;" type="checkbox" class="form-check-input"  name="blockHero" {%if settings.blockHero%}checked{%endif%}>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label" for="exampleCheck1">Block About</label>
+                    <input style="margin-right: 10px;" type="checkbox" class="form-check-input" name="blockAbout" {%if settings.blockAbout%}checked{%endif%}>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label" for="exampleCheck1">Block Resume</label>
+                    <input style="margin-right: 10px;" type="checkbox" class="form-check-input" name="blockResume" {%if settings.blockResume%}checked{%endif%}>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label" for="exampleCheck1">Block Facts</label>
+                    <input style="margin-right: 10px;" type="checkbox" class="form-check-input" name="blockFacts" {%if settings.blockFacts%}checked{%endif%}>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label" for="exampleCheck1">Block Skills</label>
+                    <input style="margin-right: 10px;" type="checkbox" class="form-check-input" name="blockSkills" {%if settings.blockSkills%}checked{%endif%}>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label" for="exampleCheck1">Block Portfilo</label>
+                    <input style="margin-right: 10px;" type="checkbox" class="form-check-input" name="blockPortfilo" {%if settings.blockPortfilo%}checked{%endif%}>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label" for="exampleCheck1">Block Services</label>
+                    <input style="margin-right: 10px;" type="checkbox" class="form-check-input" name="blockServices" {%if settings.blockServices%}checked{%endif%}>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label" for="exampleCheck1">Block Partners</label>
+                    <input style="margin-right: 10px;" type="checkbox" class="form-check-input" name="blockPartners" {%if settings.blockPartners%}checked{%endif%}>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label" for="exampleCheck1">Block Contact</label>
+                    <input style="margin-right: 10px;" type="checkbox" class="form-check-input" name="blockContact" {%if settings.blockContact%}checked{%endif%}>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 mx-auto">
+            <button class="btn btn-primary col" type="submit" name="save" value="save">ذخیره</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+{% endblock%}

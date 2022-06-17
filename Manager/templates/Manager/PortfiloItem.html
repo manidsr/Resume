@@ -1,0 +1,72 @@
+{% extends "Manager/Base.html"%}
+
+{% block title %} اطلاعات شخصی {% endblock %}
+{% block Pagetitle %} اطلاعات شخصی {% endblock %}
+
+{% block content %}
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12 col-md-12 order-lg-2 order-md-3">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="page-title">{{res.title}}</h5>
+                <div class="input-group mb-3"> 
+                    <span class="input-group-text" id="basic-addon1">نام پروژه</span>
+                    <input type="text" class="form-control" placeholder="سربرگ" value="{{res.projectTitle}}" name="projectTitle">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">دسته</span>
+                    <input type="text" class="form-control" placeholder="زمان" value="{{res.category}}" name="category">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">تاریخ</span>
+                    <input type="text" class="form-control" placeholder="سربرگ نویسه" value="{{res.projectDate}}" name="projectDate">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">ادرس پروژه</span>
+                    <input type="text" class="form-control" placeholder="توضیحات" value="{{res.projectUrl}}" name="projectUrl">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">شرکت</span>
+                    <input type="text" class="form-control" placeholder="توضیحات" value="{{res.company}}" name="company">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">توضیحات</span>
+                    <input type="text" class="form-control" placeholder="توضیحات" value="{{res.projectInfo}}" name="projectInfo">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">فیلتر</span>
+                    <select name="filter"  class="form-control" id="exampleFormControlSelect1">
+                        <option value="{{res.portfiloFilter}}" selected>{{res.portfiloFilter}}</option>
+                    {% for filter in filters %}
+                        <option value="{{filter.name}}">{{filter.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="btn btn-primary">عکس پروژه</label>
+                    <input class="form-control" type="file" id="formFile" name="image" style="display:none;">
+                </div>
+                {%if res.image%}
+                <img src="{{res.image.url}}" alt="Profile" width="200px" class="border border-dark">
+                {%endif%}   
+                <input type="hidden" name="id" value="{{res.id}}">
+            </div>
+        </div>
+        <div class="col-6 mx-auto">
+            <button class="btn btn-success col" type="submit" name="save" value="save">ذخیره</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+{% endblock%}

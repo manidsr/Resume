@@ -1,0 +1,51 @@
+{% extends "Manager/Base.html"%}
+
+{% block title %} رزومه {% endblock %}
+{% block Pagetitle %} سربرگ های رزومه {% endblock %}
+
+{% block content %}
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12 col-md-12 order-lg-2 order-md-3">
+
+    {% for project in projects %}
+    <div class="card">
+        <div class="card-body">
+            <form method="post" class="form-inline">
+                {% csrf_token %}
+                <div class="form-group mb-2">
+                    <label for="staticEmail2" class="sr-only">نام</label>
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="نام پروژه">
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="inputPassword2" class="sr-only">نام</label>
+                    <input type="text" class="form-control" id="inputPassword2" placeholder="نام پروژه" value="{{project.projectTitle}}" name="title">
+                    <input type="hidden" name="id" value="{{project.id}}">
+                </div>
+                <button type="submit" class="btn btn-success mb-2" style="margin-left: 10px;" name="changeName" value="changeName">عوض کردن نام</button>
+                <a class="btn btn-secondary mb-2" style="margin-left: 10px; color: #Fff;" href="{{project.id}}">باز کردن</a>
+                <button type="submit" class="btn btn-danger mb-2" name="delete" value="delete">حذف</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="col-6 mx-auto" style="margin-top: 20px;">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-primary col" type="submit" name="add" value="add">اضافه کردن</button>
+        </form>
+    </div>
+
+
+</div>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+{% endblock%}

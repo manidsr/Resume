@@ -1,0 +1,51 @@
+{% extends "Manager/Base.html"%}
+
+{% block title %} اطلاعات شخصی {% endblock %}
+{% block Pagetitle %} اطلاعات شخصی {% endblock %}
+
+{% block content %}
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12 col-md-12 order-lg-2 order-md-3">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="page-title">{{res.title}}</h5>
+                <div class="input-group mb-3"> 
+                    <span class="input-group-text" id="basic-addon1">نام</span>
+                    <input type="text" class="form-control" placeholder="سربرگ" value="{{person.name}}" name="name">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">شغل</span>
+                    <input type="text" class="form-control" placeholder="زمان" value="{{person.job}}" name="job">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">توضیحات</span>
+                    <input type="text" class="form-control" placeholder="سربرگ نویسه" value="{{person.info}}" name="info">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="btn btn-primary">عکس شخص</label>
+                    <input class="form-control" type="file" id="formFile" name="image" style="display:none;">
+                </div>
+                {%if person.image%}
+                <img src="{{person.image.url}}" alt="Profile" width="200px" class="border border-dark">
+                {%endif%}
+                <input type="hidden" name="id" value="{{person.id}}">
+            </div>
+        </div>
+        <div class="col-6 mx-auto">
+            <button class="btn btn-primary col" type="submit" name="save" value="save">ذخیره</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+{% endblock%}

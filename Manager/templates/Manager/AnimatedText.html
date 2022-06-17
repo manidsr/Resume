@@ -1,0 +1,42 @@
+{% extends "Manager/Base.html"%}
+
+{% block title %} متن انیمیشن شده {% endblock %}
+{% block Pagetitle %} متن انیمیشن شده {% endblock %}
+
+{% block content %}
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12 col-md-12 order-lg-2 order-md-3">
+    <form method="post">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">متن قبل از نویسه انیمیشن شده</span>
+                    <input type="text" class="form-control" placeholder="متن قبل از نویسه انیمیشن شده" aria-label="Username" name="beforeText" value="{{anim.beforeText}}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">نویسه انیمشین شده</span>
+                    <input type="text" class="form-control" placeholder="هر کلمه را با , جدا کنید" aria-label="Username" name="animtedText" value="{{anim.animtedText}}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">متن بعد از نویسه انیمیشن شده</span>
+                    <input type="text" class="form-control" placeholder="متن بعد از نویسه انیمیشن شده" aria-label="Username" name="afterText" value="{{anim.afterText}}">
+                </div>
+            </div>
+        </div>
+        <div class="col-6 mx-auto">
+            <button class="btn btn-primary col" type="submit" name="save" value="save">ذخیره</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+{% endblock%}

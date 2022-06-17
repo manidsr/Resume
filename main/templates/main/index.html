@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>MyResume Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  {% load custom_tags %}
+  {% load static %}
+  
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="{% static 'style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex flex-column justify-content-center">
+
+    <nav id="navbar" class="navbar nav-menu">
+      <ul>
+        {% if setting.blockHero%}<li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>خانه</span></a></li>{% endif %}
+        {% if setting.blockAbout%}<li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>درباره</span></a></li>{% endif %}
+        {% if setting.blockResume%}<li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>رزومه</span></a></li>{% endif %}
+        {% if setting.blockPortfilo%}<li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>پروژها</span></a></li>{% endif %}
+        {% if setting.blockServices%}<li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>سرویس ها</span></a></li>{% endif %}
+        {% if setting.blockContact%}<li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>ارتباط</span></a></li>{% endif %}
+      </ul>
+    </nav><!-- .nav-menu -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  {% block Hero %}
+    {% if setting.blockHero%}
+    <section id="hero" class="d-flex flex-column justify-content-center">
+      <div class="container" data-aos="zoom-in" data-aos-delay="100">
+        <h1>{{identitiy.name}}</h1>
+        <p> {{animatedtext.beforeText}} <span class="typed" data-typed-items="{{animatedtext.animtedText}}"></span>{{animatedtext.afterText}}</p>
+        <div class="social-links">
+          {% for item in links%}
+          <a href="{{item.link}}" class="{{item.name}}"><i class="bx bxl-{{item.name}}"></i></a>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    {% endif %}
+  {% endblock %}
+  <main id="main">
+  <!-- End Hero -->
+
+  <!-- ======= About Section ======= -->
+  {% block About %}
+    {% if setting.blockAbout%}
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>درباره</h2>
+        </div>
+
+        <div class="row">
+          
+          <div class="col-lg-8 pt-4 pt-lg-0 content">
+            <h3>{{identitiy.title}}</h3>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><span>{{identitiy.brithDay}}</span> <strong>: تولد</strong> <i class="bi bi-chevron-left"></i></li>
+                  <li><span>{{identitiy.website}}</span> <strong>: وب سایت</strong> <i class="bi bi-chevron-left"></i></li>
+                  <li><span>{{identitiy.phoneNumber}}</span> <strong>: شماره تلفن</strong> <i class="bi bi-chevron-left"></i></li>
+                  <li>
+                    <strong>شهر :</strong> 
+                    <span>{{identitiy.city}}</span> 
+                    <i class="bi bi-chevron-left"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><span>{{identitiy.age}}</span> <strong>: سن</strong> <i class="bi bi-chevron-left"></i></li>
+                  <li>
+                    <strong>مدرک :</strong> 
+                    <span>{{identitiy.degree}}</span> 
+                    <i class="bi bi-chevron-left"></i>
+                  </li>
+                  <li><span>{{identitiy.email}}</span> <strong>: ایمیل</strong> <i class="bi bi-chevron-left"></i></li>
+                  <li>
+                    <strong>شغل :</strong> 
+                    <span>{{identitiy.job}}</span> 
+                    <i class="bi bi-chevron-left"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <p>
+              <strong>{{identitiy.info}}</strong>
+            </p>
+          </div>
+
+          <div class="col-lg-4">
+            <img src="{{identitiy.image.url}}" class="img-fluid" alt="Profile">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    {% endif %}
+  {% endblock %}
+  <!-- End About Section -->
+
+  <!-- ======= Facts Section ======= -->
+  {% block Facts %}
+    {% if setting.blockFacts%}
+    <section id="facts" class="facts">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>تجربیات</h2>
+          <p>تجربیات کسب شده</p>
+        </div>
+
+        <div class="row">
+
+          {% for item in facts%}
+          <div class="col-lg-3 col-md-6 mx-auto">
+            <div class="count-box">
+              <i class="bi bi-emoji-smile"></i>
+              <span data-purecounter-start="0" data-purecounter-end="{{item.value}}" data-purecounter-duration="1" class="purecounter"></span>
+              <p>{{item.name}}</p>
+            </div>
+          </div>
+          {% endfor%}
+
+        </div>
+
+      </div>
+    </section>
+    {% endif %}
+  {% endblock %}
+  <!-- End Facts Section -->
+
+  <!-- ======= Skills Section ======= -->
+  {% block Skills %}
+    {% if setting.blockSkills%}
+    <section id="skills" class="skills section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>مهارت ها</h2>
+          <p>مهارت های کسب شده تا زمان حال</p>
+        </div>
+
+        <div class="row skills-content">
+
+          {% for item in skills %}
+
+          <div class="col-lg-6">
+
+            <div class="progress">
+              <span class="skill">{{item.name}} <i class="val">{{item.value}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{item.value}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </section>
+    {% endif %}
+  {% endblock %}
+  <!-- End Skills Section -->
+
+  <!-- ======= Resume Section ======= -->
+  {% block Resume %}
+    {% if setting.blockResume %}
+    <section id="resume" class="resume">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>رزومه</h2>
+          <p>رزومه ی من</p>
+        </div>
+
+        <div class="row" style="text-align: right;">
+          <div class="col-lg-7 mx-auto">
+
+            {% for res in resume %}
+              <h3 class="resume-title">{{res.title}}</h3>
+              {% for item in res|GetResumeItem %}
+              <div class="resume-item">
+                <h4>{{item.title}}</h4>
+                <p><strong>{{item.time}}</strong></p>
+                <p><em>{{item.secondTitle}}</em></p>
+                <p>{{item.info}}</p>
+              </div>
+              {% endfor %}
+            {% endfor %}
+
+        </div>
+
+      </div>
+    </section>
+    {% endif %}
+  {% endblock %}
+  <!-- End Resume Section -->
+
+  <!-- ======= Portfolio Section ======= -->
+  {% block Portfolio %}
+    {% if setting.blockPortfilo%}
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>پروژه ها</h2>
+          <p>پروژه های ساخته شده تا الان</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+
+              {% for filter in portfiloFilters %}
+
+                <li data-filter=".filter-{{filter.name}}">{{filter.name}}</li>
+
+              {% endfor%}
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          {% for project in portfiloProjects %}
+              
+            <div class="col-lg-4 col-md-6 portfolio-item filter-{{project.portfiloFilter}}">
+              <div class="portfolio-wrap">
+                <img src="{{project.image.url}}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>{{project.projectTitle}}</h4>
+                  <p>{{project.category}}</p>
+                  <div class="portfolio-links">
+                    <a href="{{project.image.url}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{project.projectTitle}}"><i class="bx bx-plus"></i></a>
+                    <a href="{{project.id}}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          {% endfor%}
+        </div>
+
+      </div>
+    </section>
+    {% endif %}
+  {% endblock %}
+  <!-- End Portfolio Section -->
+
+  <!-- ======= Services Section ======= -->
+  {% block Services %}
+    {% if setting.blockServices%}
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>سرویس ها</h2>
+          <p>سرویس های قابل ارائه</p>
+        </div>
+
+        <div class="row">
+
+          {% for item in services %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0 mx-auto" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box iconbox-pink mx-auto">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,541.5067337569781C382.14930387511276,545.0595476570109,479.8736841581634,548.3450877840088,526.4010558755058,480.5488172755941C571.5218469581645,414.80211281144784,517.5187510058486,332.0715597781072,496.52539010469104,255.14436215662573C477.37192572678356,184.95920475031193,473.57363656557914,105.61284051026155,413.0603344069578,65.22779650032875C343.27470386102294,18.654635553484475,251.2091493199835,5.337323636656869,175.0934190732945,40.62881213300186C97.87086631185822,76.43348514350839,51.98124368387456,156.15599469081315,36.44837278890362,239.84606092416172C21.716077023791087,319.22268207091537,43.775223500013084,401.1760424656574,96.891909868211,461.97329694683043C147.22146801428983,519.5804099606455,223.5754009179313,538.201503339737,300,541.5067337569781"></path>
+                </svg>
+                <i class="bx bx-tachometer"></i>
+              </div>
+              <h4><a href="">{{item.name}}</a></h4>
+              <p>{{item.info}}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section>
+    {% endif %}
+  {% endblock %}
+  <!-- End Services Section -->
+
+  <!-- ======= Testimonials Section ======= -->
+  {% block Testimonials %}
+    {% if setting.blockPartners%}
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>همکاران</h2>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            {% for partner in partners %}
+
+            <div class="swiper-slide">
+
+              <div class="testimonial-item">
+                <img src="{{partner.image.url}}" class="testimonial-img" alt="">
+                <h3>{{partner.name}}</h3>
+                <h4>{{partner.job}}</h4>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  {{partner.info}}
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+            
+            {% endfor%}
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section>
+    {% endif %}
+  {% endblock %}
+  <!-- End Testimonials Section -->
+
+  <!-- ======= Contact Section ======= -->
+  {% block Contact %}
+    {% if setting.blockContact%}
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>ارتباط با ما</h2>
+        </div>
+
+        <div class="row mt-1">
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="نام شما" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="ایمیل شما" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="موضوع" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="پیام" required></textarea>
+              </div>
+              <div class="text-center"><button type="submit">ارسال پیام</button></div>
+            </form>
+
+          </div>
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>:شهر</h4>
+                <p>{{identitiy.city}}</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>:ایمیل</h4>
+                <p>{{identitiy.email}}</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>:شمراه تلفن</h4>
+                <p>{{identitiy.phoneNumber}}</p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    {% endif %}
+  {% endblock %}
+  <!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>{{identitiy.name}}</h3>
+      <div class="social-links">
+        {% for item in links%}
+          <a href="{{item.link}}" class="{{item.name}}"><i class="bx bxl-{{item.name}}"></i></a>
+          {% endfor %}
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>MyResume</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: [license-url] -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/ -->
+        Designed by ManiDsr</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/purecounter/purecounter.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/typed.js/typed.min.js' %}"></script>
+  <script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}""></script>
+  <!-- Template Main JS File -->
+  <script src="{% static 'main.js' %}""></script>
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+{% extends "Manager/Base.html"%}
+
+{% block title %} اطلاعات شخصی {% endblock %}
+{% block Pagetitle %} اطلاعات شخصی {% endblock %}
+
+{% block content %}
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12 col-md-12 order-lg-2 order-md-3">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">نام</span>
+                    <input type="text" class="form-control" placeholder="نام" aria-label="Username" aria-describedby="basic-addon1" value="{{Id.name}}" name="name">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">سن</span>
+                    <input type="text" class="form-control" placeholder="سن" aria-label="Username" aria-describedby="basic-addon1" value="{{Id.age}}" name="age">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">شماره تلفن</span>
+                    <input type="text" class="form-control" placeholder="شماره تلفن" aria-label="Username" aria-describedby="basic-addon1" value="{{Id.phoneNumber}}" name="phoneNumber">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">حرفه ی شما</span>
+                    <input type="text" class="form-control" placeholder="حرفه ی شما" aria-label="Username" aria-describedby="basic-addon1" value="{{Id.title}}" name="title">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">ایمیل</span>
+                    <input type="text" class="form-control" placeholder="ایمیل" aria-label="Username" aria-describedby="basic-addon1" value="{{Id.email}}" name="email">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">شهر</span>
+                    <input type="text" class="form-control" placeholder="شهر" aria-label="Username" aria-describedby="basic-addon1" value="{{Id.city}}" name="city">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">شغل</span>
+                    <input type="text" class="form-control" placeholder="شغل" aria-label="Username" aria-describedby="basic-addon1" value="{{Id.job}}" name="job">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">مدرک</span>
+                    <input type="text" class="form-control" placeholder="مدرک" aria-label="Username" aria-describedby="basic-addon1" value="{{Id.degree}}" name="degree">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">تاریخ تولد</span>
+                    <input type="text" class="form-control" placeholder="تاریخ تولد" aria-label="Username" aria-describedby="basic-addon1" value="{{Id.brithDay}}" name="brithDay">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">وب سایت</span>
+                    <input type="text" class="form-control" placeholder="وب سایت" aria-label="Username" aria-describedby="basic-addon1" value="{{Id.website}}" name="website">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">توضیحات در باره شما</span>
+                    <input type="text" class="form-control" placeholder="توضیحات در باره شما" aria-label="Username" aria-describedby="basic-addon1" value="{{Id.info}}" name="info">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="btn btn-primary">عکس شما</label>
+                    <input class="form-control" type="file" id="formFile" name="image" style="display:none;">
+                </div>
+                <img src="{{Id.image.url}}" alt="Profile" width="200px" class="border border-dark">
+            </div>
+        </div>
+        <div class="col-6 mx-auto">
+            <button class="btn btn-primary col" type="submit" name="save" value="save">ذخیره</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+{% endblock%}

@@ -1,0 +1,59 @@
+{% extends "Manager/Base.html"%}
+
+{% block title %} اطلاعات شخصی {% endblock %}
+{% block Pagetitle %} اطلاعات شخصی {% endblock %}
+
+{% block content %}
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12 col-md-12 order-lg-2 order-md-3">
+    {% for res in resume %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="page-title">{{res.title}}</h5>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">سربرگ</span>
+                    <input type="text" class="form-control" placeholder="سربرگ" value="{{res.title}}" name="title">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">زمان</span>
+                    <input type="text" class="form-control" placeholder="زمان" value="{{res.time}}" name="time">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">سربرگ نویسه</span>
+                    <input type="text" class="form-control" placeholder="سربرگ نویسه" value="{{res.secondTitle}}" name="secondTitle">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">توضیحات</span>
+                    <input type="text" class="form-control" placeholder="توضیحات" value="{{res.info}}" name="info">
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="id" value="{{res.id}}">
+        <div class="col-6 mx-auto">
+            <button class="btn btn-success col" type="submit" name="save" value="save">ذخیره</button>
+            <button class="btn btn-danger col" type="submit" name="delete" value="delete">حذف</button>
+        </div>
+    </form>
+
+    {% endfor %}
+    <div class="col-6 mx-auto" style="margin-top: 50px;">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-primary col" type="submit" name="add" value="add">اضافه کردن</button>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+{% endblock%}

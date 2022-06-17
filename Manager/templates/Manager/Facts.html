@@ -1,0 +1,46 @@
+{% extends "Manager/Base.html"%}
+
+{% block title %} حقیقت ها {% endblock %}
+{% block Pagetitle %} حقیقت ها {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12 col-md-12 order-lg-2 order-md-3">
+    {% for fact in facts%}
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">اسم تجربه</span>
+                    <input type="text" class="form-control" placeholder="اسم تجربه" aria-label="Username" name="name" value="{{fact.name}}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">مقدار تجربه</span>
+                    <input type="text" class="form-control" placeholder="مقدار تجربه" aria-label="Username" name="value" value="{{fact.value}}">
+                    <input type="hidden" name="id" value="{{fact.id}}">
+                </div>
+                <button class="btn btn-success col-1" type="submit" name="save" value="save">ذخیره</button>
+                <button class="btn btn-danger" type="submit" name="delete" value="delete">حذف</button>
+            </div>
+        </div>
+        
+    </form>
+
+    {% endfor %}
+    <div class="col-6 mx-auto">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-primary col" type="submit" name="add" value="add">اضافه کردن</button>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+{% endblock%}
