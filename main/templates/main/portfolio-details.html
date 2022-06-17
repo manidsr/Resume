@@ -39,7 +39,9 @@
         <div class="row gy-4">
 
           <div class="col-lg-8 align-items-center">
+            {% if portfiloProjects.image %}
             <img src="{{portfiloProjects.image.url}}" alt="project image" width="700px">
+            {% endif %}
           </div>
 
           <div class="col-lg-4">

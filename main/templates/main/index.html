@@ -113,7 +113,9 @@
           </div>
 
           <div class="col-lg-4">
+            {% if identitiy.image %}
             <img src="{{identitiy.image.url}}" class="img-fluid" alt="Profile">
+            {% endif %}
           </div>
 
         </div>
@@ -257,12 +259,14 @@
               
             <div class="col-lg-4 col-md-6 portfolio-item filter-{{project.portfiloFilter}}">
               <div class="portfolio-wrap">
+                {% if project.image %}
                 <img src="{{project.image.url}}" class="img-fluid" alt="">
+                {% endif %}
                 <div class="portfolio-info">
                   <h4>{{project.projectTitle}}</h4>
                   <p>{{project.category}}</p>
                   <div class="portfolio-links">
-                    <a href="{{project.image.url}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{project.projectTitle}}"><i class="bx bx-plus"></i></a>
+                    <a {% if project.image %}href="{{project.image.url}}"{%endif%} data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{project.projectTitle}}"><i class="bx bx-plus"></i></a>
                     <a href="{{project.id}}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
                   </div>
                 </div>
@@ -331,7 +335,9 @@
             <div class="swiper-slide">
 
               <div class="testimonial-item">
+                {% if partner.image %}
                 <img src="{{partner.image.url}}" class="testimonial-img" alt="">
+                {% endif %}
                 <h3>{{partner.name}}</h3>
                 <h4>{{partner.job}}</h4>
                 <p>
