@@ -19,7 +19,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">مقدار مهارت از 100</span>
-                    <input type="text" class="form-control" placeholder="مقدار مهارت از 100" aria-label="Username" name="value" value="{{skill.value}}">
+                    <input type="number" class="form-control" placeholder="مقدار مهارت از 100" min="0" max="100" aria-label="Username" name="value" value="{{skill.value}}">
                     <input type="hidden" name="id" value="{{skill.id}}">
                 </div>
                 <button class="btn btn-success col-1" type="submit" name="save" value="save">ذخیره</button>

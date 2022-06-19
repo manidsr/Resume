@@ -1,7 +1,4 @@
-from distutils.log import info
-from tkinter import Image
-from django import http
-from django.shortcuts import HttpResponseRedirect, render,HttpResponse
+from django.shortcuts import HttpResponseRedirect, render
 from .models import Identitiy,Link,Animatedtext,SkillList,Facts,Services,Partner,Resume,Portfilo,Settings
 # Create your views here.
 

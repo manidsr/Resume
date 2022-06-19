@@ -20,7 +20,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">سن</span>
-                    <input type="text" class="form-control" placeholder="سن" aria-label="Username" aria-describedby="basic-addon1" value="{{Id.age}}" name="age">
+                    <input type="number" class="form-control" placeholder="سن" aria-label="Username" aria-describedby="basic-addon1" value="{{Id.age}}" name="age">
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">شماره تلفن</span>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="formFile" class="btn btn-primary">عکس شما</label>
-                    <input class="form-control" type="file" id="formFile" name="image" style="display:none;">
+                    <input class="form-control" type="file" id="formFile" name="image" style="display:none;" accept="image/*">
                 </div>
                 <img src="{{Id.image.url}}" alt="Profile" width="200px" class="border border-dark">
             </div>

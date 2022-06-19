@@ -17,23 +17,23 @@
                 <h5 class="page-title">{{res.title}}</h5>
                 <div class="input-group mb-3"> 
                     <span class="input-group-text" id="basic-addon1">نام پروژه</span>
-                    <input type="text" class="form-control" placeholder="سربرگ" value="{{res.projectTitle}}" name="projectTitle">
+                    <input type="text" class="form-control" placeholder="نام پروژه" value="{{res.projectTitle}}" name="projectTitle">
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">دسته</span>
-                    <input type="text" class="form-control" placeholder="زمان" value="{{res.category}}" name="category">
+                    <input type="text" class="form-control" placeholder="دسته" value="{{res.category}}" name="category">
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">تاریخ</span>
-                    <input type="text" class="form-control" placeholder="سربرگ نویسه" value="{{res.projectDate}}" name="projectDate">
+                    <input type="text" class="form-control" placeholder="تاریخ" value="{{res.projectDate}}" name="projectDate">
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">ادرس پروژه</span>
-                    <input type="text" class="form-control" placeholder="توضیحات" value="{{res.projectUrl}}" name="projectUrl">
+                    <input type="text" class="form-control" placeholder="ادرس پروژه" value="{{res.projectUrl}}" name="projectUrl">
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">شرکت</span>
-                    <input type="text" class="form-control" placeholder="توضیحات" value="{{res.company}}" name="company">
+                    <input type="text" class="form-control" placeholder="شرکت" value="{{res.company}}" name="company">
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">توضیحات</span>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="formFile" class="btn btn-primary">عکس پروژه</label>
-                    <input class="form-control" type="file" id="formFile" name="image" style="display:none;">
+                    <input class="form-control" type="file" id="formFile" name="image" style="display:none;" accept="image/*">
                 </div>
                 {%if res.image%}
                 <img src="{{res.image.url}}" alt="Profile" width="200px" class="border border-dark">

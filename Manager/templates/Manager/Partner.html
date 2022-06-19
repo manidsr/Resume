@@ -17,19 +17,19 @@
                 <h5 class="page-title">{{res.title}}</h5>
                 <div class="input-group mb-3"> 
                     <span class="input-group-text" id="basic-addon1">نام</span>
-                    <input type="text" class="form-control" placeholder="سربرگ" value="{{person.name}}" name="name">
+                    <input type="text" class="form-control" placeholder="نام" value="{{person.name}}" name="name">
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">شغل</span>
-                    <input type="text" class="form-control" placeholder="زمان" value="{{person.job}}" name="job">
+                    <input type="text" class="form-control" placeholder="شغل" value="{{person.job}}" name="job">
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">توضیحات</span>
-                    <input type="text" class="form-control" placeholder="سربرگ نویسه" value="{{person.info}}" name="info">
+                    <input type="text" class="form-control" placeholder="توضیحات" value="{{person.info}}" name="info">
                 </div>
                 <div class="mb-3">
                     <label for="formFile" class="btn btn-primary">عکس شخص</label>
-                    <input class="form-control" type="file" id="formFile" name="image" style="display:none;">
+                    <input class="form-control" type="file" id="formFile" name="image" style="display:none;" accept="image/*">
                 </div>
                 {%if person.image%}
                 <img src="{{person.image.url}}" alt="Profile" width="200px" class="border border-dark">
